@@ -1,7 +1,13 @@
 import './App.css';
 import { Button, Radio } from "antd";
+import { getAllStudents } from './client';
 
 function App() {
+
+  getAllStudents()
+    .then(res => res.json())
+    .then (res => console.log(res))
+
   return (
     <div className="App">
         <Button type='primary'>Hello</Button>
