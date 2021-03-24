@@ -1,14 +1,15 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { getAllStudents } from './client';
-import { Layout, Menu, Breadcrumb, Table, Spin, Empty } from 'antd';
+import { Layout, Menu, Breadcrumb, Table, Spin, Empty, Button } from 'antd';
 import {
   DesktopOutlined,
   PieChartOutlined,
   FileOutlined,
   TeamOutlined,
   UserOutlined,
-  LoadingOutlined 
+  LoadingOutlined,
+  PlusOutlined 
 } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -73,7 +74,10 @@ function App() {
         dataSource={students} 
         columns={columns} 
         bordered
-        title={() => 'Students'}
+        title={() => 
+          <Button type="primary" icon={<PlusOutlined />} size="small">
+            Add new Student
+          </Button>}
         pagination={{ pageSize: 50 }} 
         scroll={{ y: 500 }}
         rowKey={(student) => student.id}
