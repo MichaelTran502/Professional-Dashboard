@@ -14,3 +14,13 @@ export const getAllStudents = () => {
   return fetch('api/v1/students')
     .then(checkStatus)
 }
+
+export const addNewStudent = student => {
+  return fetch('api/v1/students', {
+    headers: {
+      'Content-Type': 'application/JSON'
+    },
+    method: 'POST',
+    body: JSON.stringify(student)
+  })
+}
